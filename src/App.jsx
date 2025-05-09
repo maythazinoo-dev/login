@@ -1,19 +1,8 @@
 import React, { useState } from "react";
-import { FaUser, FaLock, FaEyeSlash, FaEye } from "react-icons/fa";
+
+import { Loginform } from "./Loginform";
 
 export const App = () => {
-  const [showPassword, setShowPassword] = useState();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(`Your username: ${username}`);
-    console.log(`Your password: ${password}`);
-  };
-  const PasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -26,7 +15,7 @@ export const App = () => {
                 className="w-20 h-20 object-contain"
               />
             </div>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Username
@@ -84,7 +73,8 @@ export const App = () => {
               >
                 Sign In
               </button>
-            </form>
+            </form> */}
+            <Loginform />
 
             <p className="mt-6 text-center text-sm text-gray-600">
               Don’t have an account?{" "}
