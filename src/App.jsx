@@ -3,7 +3,14 @@ import { FaUser, FaLock, FaEyeSlash, FaEye } from "react-icons/fa";
 
 export const App = () => {
   const [showPassword, setShowPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Your username: ${username}`);
+    console.log(`Your password: ${password}`);
+  };
   const PasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
@@ -19,7 +26,7 @@ export const App = () => {
                 className="w-20 h-20 object-contain"
               />
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Username
@@ -28,6 +35,8 @@ export const App = () => {
                   <FaUser className="text-gray-400 mr-2" />
                   <input
                     type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     placeholder="Enter your username"
                     className="w-full outline-none"
                   />
@@ -42,6 +51,8 @@ export const App = () => {
                   <FaLock className="text-gray-400 mr-2" />
                   <input
                     type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     className="w-full outline-none"
                   />
